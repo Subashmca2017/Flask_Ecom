@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+
+<div class="container">
+  <div class="form-group">
+
+    {% from "_formhelpers.html" import render_field %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+
+    <div class=flashes>
+      {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+
+    {% endif %}
+    {% endwith %}
+    <div class="col-md-4"></div>
+    <div class="col-md-4"></div>
+
+    <div class="text-center h1 text-white bg-primary p-2">login</div>
+    <br><br><br>
+    <form method="post" enctype="multipart/form-data">
+
+      <body>
+
+        <center> {% if alert != ""%}
+          {{ alert }}
+          {% endif %}</center>
+        <p>
+          <center>
+            <div>
+              {{ render_field(form.username, placeholder = "user") }}
+              {{ render_field(form.password) }}
+
+              <p><input type="submit" value="login" class="btn btn-info mt-2"></p>
+              <p><a href="register"><input type="button" value="register"></a></p>
+          </center>
+        </p>
+
+      </body>
+    </form>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+</div>
+{% endblock %}

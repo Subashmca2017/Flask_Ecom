@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends "layout.html" %}
+
+{%block content%}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6"></div>
+            {% include "_messages.html" %}
+            {% if updatebrand %}
+            <h1 class="text-center mt-5">Update brand</h1>
+            <form action="" method="POST">
+                <input type="text" name="brand" class="form-control" value="{{updatebrand.name}}"><br>
+                <input type="submit" value="update brand" class="btn btn-info">
+                <a href="/brands" class="btn btn-sm btn-outline-info"
+                    style=" width: 100px; height: 35px; margin-left: 20px">cancel</a>
+            </form>
+            {% else %}
+            <h1 class="text-center mt-5">Add a category</h1>
+            <form action="" method="POST">
+                <input type="text" name="category" class="form-control" value="{{updatecategory.name}}"><br>
+                <input type="submit" value="update category" class="btn btn-info">
+                <a href="/category" class="btn btn-info "
+                    style=" width: 100px; height: 38px; margin-left: 20px">cancel</a>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>
+{% endblock %}
